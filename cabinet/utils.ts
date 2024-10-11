@@ -138,7 +138,7 @@ export async function reloadCaddy() {
     }
 
     const userEmail = specifiedEmail
-      ? specifiedEmail.replace("@", " [at] ").replace(/\./g, " [dot] ")
+      ? specifiedEmail.trim().replace("@", " [at] ").replaceAll(/\./g, " [dot] ")
       : `${domain.username} [at] hackclub [dot] app`;
 
     caddy.apps.http.servers.srv0.errors.routes.push({
